@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install --upgrade pip
+RUN pip3 install --upgrade setuptools
+RUN pip3 install --upgrade pipenv
+RUN pip3 install torch
+RUN pip3 install opencv-python
+RUN pip3 install jupyterlab
+
+WORKDIR /playground
+
+CMD ["jupyter", "lab", "--port=8789", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
