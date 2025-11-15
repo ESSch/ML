@@ -1,3 +1,12 @@
+# Server
+```
+docker build -t server -f dockerfile_web .
+docker run -it -p 8000:8000 server python server.py
+```
+# Docker-compose
+```
+docker compose up .
+```
 # Jupyter
 ```
 docker run --rm ubuntu:18.04 echo 1 

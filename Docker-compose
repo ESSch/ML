@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  server:
+    image
+  web:
+    image: "jupyter/datascience-notebook"
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile_my
+    build: 
+      context: .
+      dockerfile: Dockerfile_my
+    container_name: "jupyter"
+    volumes:
+      - "./notebooks:/home/jovyan/work"
+    restart: always
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - 8789:8789
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8789", "--no-browser", "--allow-root"]
