@@ -5,7 +5,8 @@ docker run -it -p 8000:8000 server python server.py
 ```
 # Docker-compose
 ```
-docker compose up .
+docker compose -f Docker-compose up
+docker compose -f Docker-compose down
 ```
 # Jupyter
 ```

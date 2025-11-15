@@ -1,7 +1,14 @@
 version: '3.8'
 services:
   server:
-    image
+    build: 
+      context: .
+      dockerfile: dockerfile_web
+    container_name: "server"
+    ports:
+      - "8000:8000"
+    restart: always
+    command: ["python", "server.py"]
   web:
     image: "jupyter/datascience-notebook"
     # build: 
