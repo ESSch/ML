@@ -1,12 +1,22 @@
+# Docker-compose
+```
+docker compose -f Docker-compose up
+docker compose -f Docker-compose down
+```
 # Server
 ```
 docker build -t server -f dockerfile_web .
 docker run -it -p 8000:8000 server python server.py
 ```
-# Docker-compose
+# DB
 ```
-docker compose -f Docker-compose up
-docker compose -f Docker-compose down
+docker run -v ./chroma-data:/data -p 800:8001 chromadb/chroma
+curl http://localhost:8001/
+```
+# Model
+```
+docker run --rm -it python bash
+pip install vllm==0.7.3
 ```
 # Jupyter
 ```

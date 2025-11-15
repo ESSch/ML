@@ -1,0 +1,10 @@
+# docker build -t langchain-db -f dockerfile_db .
+# docker run -p 8000:8000 langchain-db
+FROM python:3
+
+WORKDIR /app
+
+COPY requirements_db.txt /app/
+RUN pip install --upgrade pip
+# RUN pip install -r requirements_db.txt
+RUN pip install chromadb
