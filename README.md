@@ -15,8 +15,9 @@ curl http://localhost:8001/
 ```
 # Model
 ```
-docker run --rm -it python bash
-pip install vllm==0.7.3
+docker build -t model -f dockerfile_model .
+docker run --name vllm --rm -it python bash
+python3 model.py
 ```
 # Jupyter
 ```
