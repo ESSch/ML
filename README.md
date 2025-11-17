@@ -15,8 +15,13 @@ curl http://localhost:8001/
 ```
 # Model
 ```
-docker build -t model -f dockerfile_model .
-docker run --name vllm --rm -it python bash
+# sudo docker build -t model -f dockerfile_model .
+# sudo docker run --name vllm --rm -it model bash
+docker pull huggingface/transformers-pytorch-gpu
+sudo docker run --name vllm --rm -it huggingface/transformers-pytorch-gpu bash
+docker build -t tf -f dockerfile_model .
+sudo docker image ls
+cd /playground/
 python3 model.py
 ```
 # Jupyter
