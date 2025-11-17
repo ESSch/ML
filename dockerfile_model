@@ -2,8 +2,8 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y python3-pip
 COPY . /playground/
 WORKDIR /playground
-RUN pip3 install -r requirements_vllm.txt
-# RUN pip3 install torch
+# RUN pip3 install -r requirements_vllm.txt
+RUN pip3 install torch
 RUN pip install matplotlib
 RUN pip install seaborn
 RUN pip install bertviz
