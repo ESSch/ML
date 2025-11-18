@@ -5,3 +5,9 @@
 sudo apt-get install docker.io
 sudo docker version
 sudo docker pull huggingface/transformers-pytorch-gpu
+sudo docker image ls
+sudo docker tag huggingface/transformers-pytorch-gpu:latest tf
+sudo docker image ls
+sudo docker build -t model -f dockerfile_model .
+sudo docker run --name tf --rm -it model bash
+python3 model.py

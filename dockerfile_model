@@ -1,13 +1,5 @@
-FROM huggingface/transformers-pytorch-gpu:4.41.2
-# ubuntu:22.04
-#RUN apt-get update && apt-get install -y python3-pip
+FROM tf
 COPY . /playground/
 WORKDIR /playground
-# RUN pip3 install -r requirements_vllm.txt
-#RUN pip3 install torch
-#RUN pip install matplotlib
-#RUN pip install seaborn
-#RUN pip install bertviz
-#RUN pip3 install transformers
 
 CMD ["python3", "model.py"]

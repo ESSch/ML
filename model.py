@@ -7,4 +7,5 @@ pipeline = pipeline(
     dtype=torch.float16,
     device=0
 )
-pipeline("translate English to French: The weather is nice today.")
+result = pipeline("translate English to French: The weather is nice today.");
+print(result);
