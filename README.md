@@ -7,22 +7,18 @@ docker compose -f Docker-compose down
 ```
 docker build -t server -f dockerfile_web .
 docker run -it -p 8000:8000 server python server.py
+curl http://localhost:8000/
+curl http://localhost:8000/?name=Evgeniy
 ```
 # DB
 ```
 docker run -v ./chroma-data:/data -p 800:8001 chromadb/chroma
 curl http://localhost:8001/
 ```
-# Model
+# CI / CD
 ```
-# sudo docker build -t model -f dockerfile_model .
-# sudo docker run --name vllm --rm -it model bash
-docker pull huggingface/transformers-pytorch-gpu
-sudo docker run --name vllm --rm -it huggingface/transformers-pytorch-gpu bash
-docker build -t tf -f dockerfile_model .
-sudo docker image ls
-cd /playground/
-python3 model.py
+bash push.sh
+bash run.sh
 ```
 # Jupyter
 ```
@@ -42,11 +38,4 @@ torch.cuda.is_available()
 docker build -t cuda -f Dockerfile_cuda .
 docker image ls
 docker run -it cuda nvidia-smi
-```
-# WSL
-```
-wsl --install
-wsl.exe --update
-wsl.exe -l -v
-wsl.exe
 ```
