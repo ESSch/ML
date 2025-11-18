@@ -1,14 +1,12 @@
 import torch
 from transformers import pipeline#, ViTFeatureExtractor, ViTForImageClassification, ViTImageProcessor, FSMTForConditionalGeneration, FSMTTokenizer
 
-# pipeline2 = pipeline(
-#     task="text2text-generation",
-#     model="google-t5/t5-base",
-#     dtype=torch.float16,
-#     device=0
-# );
-# result2 = pipeline2("translate English to French: The weather is nice today.");
-# print("Translate EN to FR: ", result2);
+pipeline2 = pipeline(
+    task="text2text-generation",
+    model="google-t5/t5-base",
+    dtype=torch.float16,
+    device=0
+);
 
 pipeline3 = pipeline(
     task="image-classification",
@@ -22,13 +20,17 @@ print("Image to text: ", result3);
 detected = result3[0]["label"];
 print("Detected: ", detected);
 
-pipeline4 = pipeline(
-    task="text-generation",
-    model="facebook/wmt19-en-ru",
-    dtype=torch.float16,
-    device=0
-);
-result4 = pipeline4(f"translate English to Russina: {detected}");
+result2 = pipeline2(f"translate English to Russian: {detected}.");
+print("Translate EN to FR: ", result2);
+
+# pipeline4 = pipeline(
+#     task="text-generation",
+#     model="facebook/wmt19-en-ru",
+#     dtype=torch.float16,
+#     device=0
+# );
+# result4 = pipeline4(f"translate English to Russina: {detected}");
+# print("Translate EN to RU: ", result4);
 
 # from transformers import ViTFeatureExtractor, ViTForImageClassification, ViTImageProcessor
 # from PIL import Image
