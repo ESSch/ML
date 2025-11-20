@@ -8,12 +8,19 @@ from transformers import pipeline#, ViTFeatureExtractor, ViTForImageClassificati
 #     device=0
 # );
 
-
+# https://huggingface.co/docs/transformers/model_doc/vit
 pipeline3 = pipeline(
     task="image-classification",
     model="google/vit-base-patch16-224",
     dtype=torch.float16,
     device=0
+)
+
+clip = pipeline(
+   task="zero-shot-image-classification",
+   model="openai/clip-vit-base-patch32",
+   dtype=torch.bfloat16,
+   device=0
 )
 
 pipeline4 = pipeline(
@@ -23,7 +30,13 @@ pipeline4 = pipeline(
     device=0
 );
 
-def main(url = "https://i.pinimg.com/736x/01/f0/d2/01f0d2329d42c41e9b5cf315665783fd.jpg"):
+def compare(url, label = "dog"):
+    labels = [f"a photo of a {label}"];
+    result = clip(url, candidate_labels=labels);
+    print("Compare: ", result);
+    return result;
+
+def detect_image_to_text(url = "https://i.pinimg.com/736x/01/f0/d2/01f0d2329d42c41e9b5cf315665783fd.jpg"):
     result3 = pipeline3(url);
     print("Image to text: ", result3);
     # [{'label': 'lynx, catamount', 'score': 0.43460196256637573}, {'label': 'cougar, puma, catamount, mountain lion, painter, panther, Felis concolor', 'score': 0.03484790772199631}, {'label': 'snow leopard, ounce, Panthera uncia', 'score': 0.032355185598134995}, {'label': 'Egyptian cat', 'score': 0.023950593546032906}, {'label': 'tabby, tabby cat', 'score': 0.02285381592810154}]

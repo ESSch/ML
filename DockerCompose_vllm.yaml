@@ -1,0 +1,25 @@
+# Text+Image2text model
+version: "2.3"
+
+services:
+  vllm:
+    image: "vllm/vllm-openai:latest"
+    container_name: "vllm"
+    restart: "always"
+    command:
+      - "--model"
+      - "Qwen/Qwen2-VL-7B-Instruct-GPTQ-int4" # Qwen VusuaL
+      - "--port"
+      - "8000"
+      - "gpu-memory-utilization 0.9"
+    ports:
+      - "8000:8004"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: 1
+              devices: ["0"]
+    volumes:
+      - "./models:/models"
