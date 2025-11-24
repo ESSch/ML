@@ -8,6 +8,7 @@ from transformers import pipeline#, ViTFeatureExtractor, ViTForImageClassificati
 #     device=0
 # );
 
+
 # https://huggingface.co/docs/transformers/model_doc/vit
 pipeline3 = pipeline(
     task="image-classification",
@@ -29,6 +30,18 @@ pipeline4 = pipeline(
     dtype=torch.float16,
     device=0
 );
+
+#https://docs.langchain.com/oss/javascript/integrations/tools/duckduckgo_search
+def find(url):
+    # TODO
+    return "";
+
+# https://huggingface.co/models?pipeline_tag=image-to-text&sort=trending&search=paddlePaddle1
+# https://huggingface.co/URIIT/mns-tesseract
+def ocr(url):
+    # TODO
+    return "";
+
 
 def compare(url, label = "dog"):
     labels = [f"a photo of a {label}"];
