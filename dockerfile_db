@@ -1,10 +1,9 @@
-# docker build -t langchain-db -f dockerfile_db .
-# docker run -p 8000:8000 langchain-db
+# docker build -t db -f dockerfile_db .
+# docker run -p 8000:8000 db
 FROM python:3
 
 WORKDIR /app
-
-COPY requirements_db.txt /app/
+COPY . .
 RUN pip install --upgrade pip
-# RUN pip install -r requirements_db.txt
+RUN pip install sentence-transformers 
 RUN pip install chromadb

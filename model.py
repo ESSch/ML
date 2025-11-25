@@ -1,13 +1,5 @@
 import torch
-from transformers import pipeline#, ViTFeatureExtractor, ViTForImageClassification, ViTImageProcessor, FSMTForConditionalGeneration, FSMTTokenizer
-
-# pipeline2 = pipeline(
-#     task="text2text-generation",
-#     model="google-t5/t5-base",
-#     dtype=torch.float16,
-#     device=0
-# );
-
+from transformers import pipeline
 
 # https://huggingface.co/docs/transformers/model_doc/vit
 pipeline3 = pipeline(
@@ -31,8 +23,12 @@ pipeline4 = pipeline(
     device=0
 );
 
-#https://docs.langchain.com/oss/javascript/integrations/tools/duckduckgo_search
-def find(url):
+# https://docs.langchain.com/oss/javascript/integrations/tools/duckduckgo_search
+# https://huggingface.co/IDEA-Research/grounding-dino-base
+# https://huggingface.co/keras/retinanet_resnet50_fpn_v2_coco
+# https://huggingface.co/segmind/SSD-1B
+# https://huggingface.co/models?search=YOLOv12
+def detection(url):
     # TODO
     return "";
 
@@ -41,7 +37,6 @@ def find(url):
 def ocr(url):
     # TODO
     return "";
-
 
 def compare(url, label = "dog"):
     labels = [f"a photo of a {label}"];
