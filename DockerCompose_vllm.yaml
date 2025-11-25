@@ -14,6 +14,7 @@ services:
       - "gpu-memory-utilization 0.9"
     ports:
       - "8000:8004"
+    # TODO: 8GB RAM
     deploy:
       resources:
         reservations:
