@@ -1,0 +1,2 @@
+FROM qwenllm/qwenvl
+COPY . . 
