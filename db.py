@@ -30,6 +30,4 @@ collection.add(
 )
 
 result = collection.query(query_embeddings=[query_embedding], n_results=2)
-print("🔍 Chroma:", result["documents"][0]);
-
-
+print("Chroma:", result["documents"][0]);

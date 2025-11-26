@@ -28,15 +28,44 @@ pipeline4 = pipeline(
 # https://huggingface.co/keras/retinanet_resnet50_fpn_v2_coco
 # https://huggingface.co/segmind/SSD-1B
 # https://huggingface.co/models?search=YOLOv12
-def detection(url):
-    # TODO
+# https://huggingface.co/models?search=u-net # по идее лучше YOLOv11
+def _detection(url):
+    # TODO получить полигоны (YOLO)
+    # TODO классификация изображения в полегоне (resnet)
     return "";
 
+def validate(url):
+    # TODO: проверить, что изображение соответствует запросу
+    results = _detection(url);
+    return "";
+
+# https://huggingface.co/mradermacher/Quen2-65B-i1-GGUF
+# Quen-3B VideoRAM=8GB Latency=3sec
+# DINO-2
+def getDescription(url):
+    results = _detection(url);
+    # TODO: получить описание изображения для генерации описания описания товара
+    return "";
+
+# распознование документов на русском языке и их валидация
 # https://huggingface.co/models?pipeline_tag=image-to-text&sort=trending&search=paddlePaddle1
 # https://huggingface.co/URIIT/mns-tesseract
 def ocr(url):
     # TODO
     return "";
+
+# TODO: найти товары по описанию
+def findText(text):
+    # TODO: описк товаров через через RAG
+    results = [];
+    return results;
+
+# поиск товаров со схожими изображениями
+def findImage(url):
+    results = _detection(url);
+    # TODO: перевести изображение в текст или поиск в RAG-Image
+    results = [];
+    return results;
 
 def compare(url, label = "dog"):
     labels = [f"a photo of a {label}"];
